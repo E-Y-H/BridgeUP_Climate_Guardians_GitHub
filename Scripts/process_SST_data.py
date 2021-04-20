@@ -1,36 +1,30 @@
 import setup
 import xarray as xr
 import matplotlib.pyplot as plt
+import numpy as np
 
-setup.dataPath
+setup.datapath
 
 if __name__ == '__main__':
 
-	#set up variables
-	finename = 'HadISST_sst.nc'
+        filename = "HadISST_sst.nc"
 
-	#access SST variable
-	sst = data.sst
+        data = xr.open_dataset(filename)
 
-	#import file
-	data = xr.open_dataset(filename)
-	mean = data.sst.mean("team")
-	print(mean.dims)
-	#plotting
-	fig = plt.figure[]
-	ax = plt.axes(projection= '3d')
-	#calculate mean 
-	print("the sst mean is ", sst.mean())
+        sst = data.sst
 
-	#save other data as variables
-	longitude = data.sst.longitude
-	latitude = data.sst.latitude
-	#print (longitude)
-	#print (latitude)
 
-	#access coordinate variable
-	#print(data.sst.coords)
+plt.figure()
+plt.contourf(sst.longitude,sst.latitude,sst.where(sst >= 0).mean(dim="time"), cmap= "cool")
+plt.colorbar(label = 'temperature')
+plt.xlabel('longitude')
+plt.ylabel('latitude')
+plt.show()
 
-	data.mean(dim ="time")
-
-	mean = data.mean("time")
+plt.figure(figsize = (20,10))
+plt.contourf(atlantic2.longitude,atlantic2.latitude,atlantic2.where(sst >=0).mean(dim="time"), cmap = "cool")
+plt.title("The Atlantic")
+plt.colorbar(label = 'temperature')
+plt.xlabel('longitude')
+plt.ylabel('latitude')
+plt.show()

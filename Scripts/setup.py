@@ -1,8 +1,8 @@
 import os #import libraries
 
 os.getcwd() #check working directory
-os.chdir('/Users/brownscholar/Desktop/2020_BridgeUP_Internships/Data')
-dataPath = '/Users/brownscholar/Desktop/2020_BridgeUP_Internships/Data'
+os.chdir('/Users/brownscholar/Desktop/BridgeUP_Climate_Guardians_GitHub/Scripts')
 
-os.chdir(dataPath)
+datapath = '/Users/brownscholar/Desktop/BridgeUP_Climate_Guardians_GitHub/Scripts'
+os.chdir(datapath)
 print(os.getcwd())
